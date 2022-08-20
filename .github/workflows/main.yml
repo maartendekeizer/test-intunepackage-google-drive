@@ -21,8 +21,8 @@ jobs:
         
       - name: Download Google Drive
         run: |
-          wget https://dl.google.com/drive-file-stream/GoogleDriveSetup.exe
-          dir
+          Invoke-WebRequest https://dl.google.com/drive-file-stream/GoogleDriveSetup.exe -OutFile GoogleDriveSetup.exe
+          ls
       
       
 
