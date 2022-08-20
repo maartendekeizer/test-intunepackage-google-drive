@@ -18,3 +18,11 @@ jobs:
         
       - name: List
         run: dir
+        
+      - name: Download Google Drive
+        run: |
+          wget https://dl.google.com/drive-file-stream/GoogleDriveSetup.exe
+          dir
+      
+      
+
