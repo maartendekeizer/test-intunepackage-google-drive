@@ -30,6 +30,11 @@ jobs:
           Win32ContentPrepTool/IntuneWinAppUtil.exe -c GoogleDrive -s GoogleDrive/GoogleDriveSetup.exe -o Output
           ls Output
           
+      - name: Save as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: GoogleDriveSetup.intunewin
+          path: Output/GoogleDriveSetup.intunewin
           
            
       
