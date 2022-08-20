@@ -21,8 +21,17 @@ jobs:
         
       - name: Download Google Drive
         run: |
-          Invoke-WebRequest -Uri https://dl.google.com/drive-file-stream/GoogleDriveSetup.exe -OutFile GoogleDriveSetup.exe
+          mkdir temp
+          Invoke-WebRequest -Uri https://dl.google.com/drive-file-stream/GoogleDriveSetup.exe -OutFile temp/GoogleDriveSetup.exe
           ls
+          ls temp
+          
+      - name: Download Win32 content prep tool
+        run: |
+          git clone https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool
+          ls
+          
+           
       
       
 
