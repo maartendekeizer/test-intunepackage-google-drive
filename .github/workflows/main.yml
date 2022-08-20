@@ -13,23 +13,23 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run a one-line script
-        run: echo Hello, world!
-        
-      - name: List
-        run: dir
-        
       - name: Download Google Drive
         run: |
-          mkdir temp
-          Invoke-WebRequest -Uri https://dl.google.com/drive-file-stream/GoogleDriveSetup.exe -OutFile temp/GoogleDriveSetup.exe
-          ls
-          ls temp
+          mkdir GoogleDrive
+          Invoke-WebRequest -Uri https://dl.google.com/drive-file-stream/GoogleDriveSetup.exe -OutFile GoogleDrive/GoogleDriveSetup.exe
+          ls GoogleDrive/
           
       - name: Download Win32 content prep tool
         run: |
-          git clone https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool
-          ls
+          git clone https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool Win32ContentPrepTool
+          ls Win32ContentPrepTool/
+          
+      - name: Run tool
+        run: |
+          mkdir Output
+          Win32ContentPrepTool/IntuneWinAppUtil.exe -c GoogleDrive -s GoogleDrive/GoogleDriveSetup.exe -o Output
+          ls Output
+          
           
            
       
